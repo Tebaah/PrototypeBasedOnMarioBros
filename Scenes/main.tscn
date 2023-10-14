@@ -9,4 +9,4 @@
 position = Vector2(0, 865)
 
 [node name="Enviroment" parent="." instance=ExtResource("1_xllnw")]
-position = Vector2(0, 952)
+position = Vector2(940, 912)
