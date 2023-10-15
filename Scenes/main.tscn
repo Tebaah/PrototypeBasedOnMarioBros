@@ -6,7 +6,7 @@
 [node name="Main" type="Node"]
 
 [node name="Player" parent="." instance=ExtResource("2_aoo5h")]
-position = Vector2(0, 865)
+position = Vector2(6196, -77)
 
 [node name="Enviroment" parent="." instance=ExtResource("1_xllnw")]
-position = Vector2(940, 912)
+position = Vector2(988, 61)
