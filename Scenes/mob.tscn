@@ -1,4 +1,6 @@
-[gd_scene load_steps=2 format=3 uid="uid://2pynlsd0qbj6"]
+[gd_scene load_steps=3 format=3 uid="uid://2pynlsd0qbj6"]
+
+[ext_resource type="Texture2D" uid="uid://dgta06gsftxpi" path="res://Art/platformerGraphicsDeluxe_Updated/Enemies/blockerMad.png" id="1_3y2aw"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_31n87"]
 size = Vector2(48, 48)
@@ -6,6 +8,7 @@ size = Vector2(48, 48)
 [node name="Mob" type="CharacterBody2D"]
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_3y2aw")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_31n87")

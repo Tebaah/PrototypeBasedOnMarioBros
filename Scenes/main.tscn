@@ -1,12 +1,16 @@
-[gd_scene load_steps=3 format=3 uid="uid://4yn8swcoq0l0"]
+[gd_scene load_steps=4 format=3 uid="uid://4yn8swcoq0l0"]
 
 [ext_resource type="PackedScene" uid="uid://bsqek5uo0goqw" path="res://Scenes/enviroment.tscn" id="1_xllnw"]
-[ext_resource type="PackedScene" uid="uid://dxqq1hs55yuk5" path="res://Scenes/player.tscn" id="2_aoo5h"]
+[ext_resource type="PackedScene" uid="uid://b051g337vgaep" path="res://Scenes/player.tscn" id="2_aoo5h"]
+[ext_resource type="PackedScene" uid="uid://2pynlsd0qbj6" path="res://Scenes/mob.tscn" id="3_x2056"]
 
 [node name="Main" type="Node"]
 
 [node name="Player" parent="." instance=ExtResource("2_aoo5h")]
-position = Vector2(6196, -77)
+position = Vector2(0, 16)
 
 [node name="Enviroment" parent="." instance=ExtResource("1_xllnw")]
-position = Vector2(988, 61)
+position = Vector2(888, -8)
+
+[node name="Mob" parent="." instance=ExtResource("3_x2056")]
+position = Vector2(324, 36)

@@ -1,25 +1,98 @@
-[gd_scene load_steps=4 format=3 uid="uid://dxqq1hs55yuk5"]
+[gd_scene load_steps=17 format=3 uid="uid://b051g337vgaep"]
 
-[ext_resource type="Script" path="res://Scripts/Player.cs" id="1_1muxh"]
-[ext_resource type="Texture2D" uid="uid://brmhx6w1h3l3" path="res://icon.svg" id="2_at16c"]
+[ext_resource type="Texture2D" uid="uid://dkkagyar5d5jf" path="res://Art/platformerGraphicsDeluxe_Updated/Player/p1_stand.png" id="1_fi6sa"]
+[ext_resource type="Script" path="res://Scripts/PlayerController.cs" id="1_vp65b"]
+[ext_resource type="Texture2D" uid="uid://caafvu37u4m7b" path="res://Art/platformerGraphicsDeluxe_Updated/Player/p1_jump.png" id="3_bkqq4"]
+[ext_resource type="Texture2D" uid="uid://rtg7aj51gwmy" path="res://Art/platformerGraphicsDeluxe_Updated/Player/p1_walk/PNG/p1_walk01.png" id="4_acdm2"]
+[ext_resource type="Texture2D" uid="uid://dl2e5wosouqsr" path="res://Art/platformerGraphicsDeluxe_Updated/Player/p1_walk/PNG/p1_walk02.png" id="5_wrv5l"]
+[ext_resource type="Texture2D" uid="uid://b7cxhraq0ojvi" path="res://Art/platformerGraphicsDeluxe_Updated/Player/p1_walk/PNG/p1_walk03.png" id="6_448aw"]
+[ext_resource type="Texture2D" uid="uid://6y45fd6g3liv" path="res://Art/platformerGraphicsDeluxe_Updated/Player/p1_walk/PNG/p1_walk04.png" id="7_p0nj8"]
+[ext_resource type="Texture2D" uid="uid://bi8ajwhslvunv" path="res://Art/platformerGraphicsDeluxe_Updated/Player/p1_walk/PNG/p1_walk05.png" id="8_nw2io"]
+[ext_resource type="Texture2D" uid="uid://cp87eqwf1h13f" path="res://Art/platformerGraphicsDeluxe_Updated/Player/p1_walk/PNG/p1_walk06.png" id="9_rj5j4"]
+[ext_resource type="Texture2D" uid="uid://xrw1ul8juxei" path="res://Art/platformerGraphicsDeluxe_Updated/Player/p1_walk/PNG/p1_walk07.png" id="10_dsyfr"]
+[ext_resource type="Texture2D" uid="uid://dtn0o0ujqydll" path="res://Art/platformerGraphicsDeluxe_Updated/Player/p1_walk/PNG/p1_walk08.png" id="11_cov1i"]
+[ext_resource type="Texture2D" uid="uid://ckv15wbnpvrca" path="res://Art/platformerGraphicsDeluxe_Updated/Player/p1_walk/PNG/p1_walk09.png" id="12_2m8u1"]
+[ext_resource type="Texture2D" uid="uid://cf3cimhnn6dyy" path="res://Art/platformerGraphicsDeluxe_Updated/Player/p1_walk/PNG/p1_walk10.png" id="13_8scie"]
+[ext_resource type="Texture2D" uid="uid://5n5r4yp2wfb0" path="res://Art/platformerGraphicsDeluxe_Updated/Player/p1_walk/PNG/p1_walk11.png" id="14_wsdht"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_i1hyb"]
-size = Vector2(52, 52)
+[sub_resource type="SpriteFrames" id="SpriteFrames_nu3ig"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_bkqq4")
+}],
+"loop": true,
+"name": &"jump",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_fi6sa")
+}],
+"loop": true,
+"name": &"stand",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("4_acdm2")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_wrv5l")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_448aw")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_p0nj8")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_nw2io")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_rj5j4")
+}, {
+"duration": 1.0,
+"texture": ExtResource("10_dsyfr")
+}, {
+"duration": 1.0,
+"texture": ExtResource("11_cov1i")
+}, {
+"duration": 1.0,
+"texture": ExtResource("12_2m8u1")
+}, {
+"duration": 1.0,
+"texture": ExtResource("13_8scie")
+}, {
+"duration": 1.0,
+"texture": ExtResource("14_wsdht")
+}],
+"loop": true,
+"name": &"walk",
+"speed": 10.0
+}]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_6mwqh"]
+radius = 30.0
+height = 96.0
 
 [node name="Player" type="CharacterBody2D"]
-self_modulate = Color(0.47451, 0.184314, 0.25098, 1)
-script = ExtResource("1_1muxh")
+script = ExtResource("1_vp65b")
+jumpVelocity = 375.0
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
-scale = Vector2(0.4, 0.4)
-texture = ExtResource("2_at16c")
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_nu3ig")
+animation = &"walk"
+autoplay = "stand"
+frame = 5
+frame_progress = 0.59128
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-shape = SubResource("RectangleShape2D_i1hyb")
+position = Vector2(0, -3)
+shape = SubResource("CapsuleShape2D_6mwqh")
 
-[node name="Camera" type="Camera2D" parent="."]
-offset = Vector2(0, -400)
-limit_left = -960
-limit_top = -500
-limit_right = 100000
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(0, -360)
+limit_left = -500
+limit_top = -882
 limit_bottom = 0
