@@ -74,4 +74,12 @@ public partial class PlayerController : CharacterBody2D
 		}
 
 	}
+
+	private void OnPlayerBodyEntered(CharacterBody2D body)
+	{
+		if(body.Name == "Enemy")
+		{
+			GD.Print("Toque un enemigo");
+		}
+	}
 }

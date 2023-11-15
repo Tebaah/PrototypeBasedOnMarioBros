@@ -2,7 +2,7 @@
 
 [ext_resource type="PackedScene" uid="uid://bsqek5uo0goqw" path="res://Scenes/enviroment.tscn" id="1_xllnw"]
 [ext_resource type="PackedScene" uid="uid://b051g337vgaep" path="res://Scenes/player.tscn" id="2_aoo5h"]
-[ext_resource type="PackedScene" uid="uid://2pynlsd0qbj6" path="res://Scenes/mob.tscn" id="3_x2056"]
+[ext_resource type="PackedScene" uid="uid://2pynlsd0qbj6" path="res://Scenes/enemy.tscn" id="3_yl7ce"]
 
 [node name="Main" type="Node"]
 
@@ -12,5 +12,5 @@ position = Vector2(0, 16)
 [node name="Enviroment" parent="." instance=ExtResource("1_xllnw")]
 position = Vector2(888, -8)
 
-[node name="Mob" parent="." instance=ExtResource("3_x2056")]
-position = Vector2(324, 36)
+[node name="Enemy" parent="." instance=ExtResource("3_yl7ce")]
+position = Vector2(136, 38)

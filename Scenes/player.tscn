@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=3 uid="uid://b051g337vgaep"]
+[gd_scene load_steps=18 format=3 uid="uid://b051g337vgaep"]
 
 [ext_resource type="Texture2D" uid="uid://dkkagyar5d5jf" path="res://Art/platformerGraphicsDeluxe_Updated/Player/p1_stand.png" id="1_fi6sa"]
 [ext_resource type="Script" path="res://Scripts/PlayerController.cs" id="1_vp65b"]
@@ -76,7 +76,12 @@ animations = [{
 radius = 30.0
 height = 96.0
 
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_xvrxe"]
+radius = 33.0
+height = 94.0
+
 [node name="Player" type="CharacterBody2D"]
+collision_mask = 6
 script = ExtResource("1_vp65b")
 jumpVelocity = 375.0
 
@@ -96,3 +101,11 @@ position = Vector2(0, -360)
 limit_left = -500
 limit_top = -882
 limit_bottom = 0
+
+[node name="Area2D" type="Area2D" parent="."]
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("CapsuleShape2D_xvrxe")
+
+[connection signal="body_entered" from="Area2D" to="." method="OnPlayerBodyEntered"]
