@@ -69,31 +69,29 @@ animations = [{
 }],
 "loop": true,
 "name": &"walk",
-"speed": 10.0
+"speed": 15.0
 }]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_6mwqh"]
-radius = 30.0
-height = 96.0
+radius = 23.0
+height = 86.0
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_xvrxe"]
 radius = 33.0
-height = 94.0
+height = 90.0
 
 [node name="Player" type="CharacterBody2D"]
 collision_mask = 6
 script = ExtResource("1_vp65b")
-jumpVelocity = 375.0
+jumpVelocity = 550.0
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_nu3ig")
 animation = &"walk"
 autoplay = "stand"
-frame = 5
-frame_progress = 0.59128
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(0, -3)
+position = Vector2(0, 2)
 shape = SubResource("CapsuleShape2D_6mwqh")
 
 [node name="Camera2D" type="Camera2D" parent="."]

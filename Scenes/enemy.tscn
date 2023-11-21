@@ -1,13 +1,18 @@
-[gd_scene load_steps=3 format=3 uid="uid://2pynlsd0qbj6"]
+[gd_scene load_steps=5 format=3 uid="uid://2pynlsd0qbj6"]
 
 [ext_resource type="Texture2D" uid="uid://dgta06gsftxpi" path="res://Art/platformerGraphicsDeluxe_Updated/Enemies/blockerMad.png" id="1_88ouc"]
+[ext_resource type="Script" path="res://Scripts/EnemyController.cs" id="1_n77d1"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_31n87"]
 size = Vector2(50, 51)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_tsoo8"]
+size = Vector2(43, 6)
+
 [node name="Enemy" type="CharacterBody2D"]
 collision_layer = 2
 collision_mask = 5
+script = ExtResource("1_n77d1")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture = ExtResource("1_88ouc")
@@ -15,3 +20,12 @@ texture = ExtResource("1_88ouc")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, -0.5)
 shape = SubResource("RectangleShape2D_31n87")
+
+[node name="Area2D" type="Area2D" parent="."]
+collision_layer = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(0, -27)
+shape = SubResource("RectangleShape2D_tsoo8")
+
+[connection signal="body_entered" from="Area2D" to="." method="OnEnemyBodyEntered"]
