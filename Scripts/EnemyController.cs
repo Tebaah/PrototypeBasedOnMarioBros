@@ -50,7 +50,7 @@ public partial class EnemyController : CharacterBody2D
 	{
 		if(body.Name == "Player")
 		{
-			GD.Print("Toque al jugador");
+			GD.Print("Me mato el jugador");
 			QueueFree();
 		}
 	}

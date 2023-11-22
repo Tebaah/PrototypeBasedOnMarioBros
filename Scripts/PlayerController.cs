@@ -15,7 +15,12 @@ public partial class PlayerController : CharacterBody2D
 		_animatedController = GetNode<AnimatedSprite2D>("AnimatedSprite2D");
 	}
 
-	public override void _PhysicsProcess(double delta)
+    public override void _Process(double delta)
+    {
+        Dead();
+    }
+
+    public override void _PhysicsProcess(double delta)
 	{
 		Vector2 velocity = Velocity;
 
@@ -43,16 +48,16 @@ public partial class PlayerController : CharacterBody2D
 			velocity.X = moveSpeed;
 		}
 
-		UpdateSpriteRender(velocity.X);
-		UpdateSpriteRenderJump(velocity.Y);
+		UpdateSpriteRender(velocity.X, velocity.Y);
 
 		Velocity = velocity;
 		MoveAndSlide();
 	}
 
-	private void UpdateSpriteRender(float velocityX)
+	private void UpdateSpriteRender(float velocityX, float velocityY)
 	{
 		bool walking = velocityX != 0;
+		bool jumping = velocityY != 0;
 
 		if(walking)
 		{
@@ -63,10 +68,6 @@ public partial class PlayerController : CharacterBody2D
 		{
 			_animatedController.Play("stand");
 		}
-	}
-		private void UpdateSpriteRenderJump(float velocityY)
-	{
-		bool jumping = velocityY != 0;
 
 		if(jumping)
 		{
@@ -77,9 +78,19 @@ public partial class PlayerController : CharacterBody2D
 
 	private void OnPlayerBodyEntered(CharacterBody2D body)
 	{
-		if(body.Name == "Enemy")
+		if(body.IsInGroup("Enemies"))
 		{
-			GD.Print("Toque un enemigo");
+			// Accion cuando un enemigo me toca
+			GD.Print("Me mato un enemigo");
+		}
+	}
+
+	private void Dead()
+	{
+		if(Position.Y >= 136)
+		{
+			// Accion cuando caigo por el borde
+			GD.Print("Me mori !!!!");
 		}
 	}
 }

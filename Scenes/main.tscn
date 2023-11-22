@@ -7,24 +7,25 @@
 [node name="Main" type="Node"]
 
 [node name="Player" parent="." instance=ExtResource("2_aoo5h")]
-position = Vector2(3984, -464)
+position = Vector2(3760, 16)
 
 [node name="Enviroment" parent="." instance=ExtResource("1_xllnw")]
 position = Vector2(1032, -216)
 
-[node name="Enemy" parent="." instance=ExtResource("3_yl7ce")]
-position = Vector2(756, -168)
-speed = 500.0
-_destiny = 650.0
+[node name="Enemies" type="Node" parent="."]
 
-[node name="Enemy2" parent="." instance=ExtResource("3_yl7ce")]
-position = Vector2(1606, -448)
-_destiny = 1400.0
+[node name="Enemy" parent="Enemies" groups=["Enemies"] instance=ExtResource("3_yl7ce")]
+position = Vector2(840, -168)
+_destiny = 200.0
 
-[node name="Enemy3" parent="." instance=ExtResource("3_yl7ce")]
-position = Vector2(2120, 39)
-_destiny = 2000.0
+[node name="Enemy2" parent="Enemies" groups=["Enemies"] instance=ExtResource("3_yl7ce")]
+position = Vector2(1701, -452)
+_destiny = 1350.0
 
-[node name="Enemy4" parent="." instance=ExtResource("3_yl7ce")]
-position = Vector2(256, -169)
-speed = 64.0
+[node name="Enemy3" parent="Enemies" groups=["Enemies"] instance=ExtResource("3_yl7ce")]
+position = Vector2(2749, 37)
+_destiny = 2015.0
+
+[node name="Enemy4" parent="Enemies" groups=["Enemies"] instance=ExtResource("3_yl7ce")]
+position = Vector2(4646, 34)
+_destiny = 3896.0
