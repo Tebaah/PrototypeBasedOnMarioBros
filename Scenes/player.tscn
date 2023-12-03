@@ -73,15 +73,15 @@ animations = [{
 }]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_6mwqh"]
-radius = 23.0
+radius = 20.0
 height = 86.0
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_xvrxe"]
-radius = 33.0
-height = 90.0
+radius = 21.0
+height = 88.0
 
 [node name="Player" type="CharacterBody2D"]
-collision_mask = 6
+collision_mask = 14
 script = ExtResource("1_vp65b")
 jumpVelocity = 550.0
 
@@ -91,7 +91,7 @@ animation = &"walk"
 autoplay = "stand"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(0, 2)
+position = Vector2(1, 2)
 shape = SubResource("CapsuleShape2D_6mwqh")
 
 [node name="Camera2D" type="Camera2D" parent="."]
@@ -101,9 +101,11 @@ limit_top = -882
 limit_bottom = 0
 
 [node name="Area2D" type="Area2D" parent="."]
-collision_mask = 2
+collision_mask = 10
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(1, 1)
 shape = SubResource("CapsuleShape2D_xvrxe")
+metadata/_edit_lock_ = true
 
 [connection signal="body_entered" from="Area2D" to="." method="OnPlayerBodyEntered"]

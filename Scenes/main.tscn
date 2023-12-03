@@ -1,31 +1,80 @@
-[gd_scene load_steps=4 format=3 uid="uid://4yn8swcoq0l0"]
+[gd_scene load_steps=8 format=3 uid="uid://4yn8swcoq0l0"]
 
+[ext_resource type="Texture2D" uid="uid://ckcr4rjwlvqc4" path="res://Art/platformerGraphicsDeluxe_Updated/bg_castle.png" id="1_1dblm"]
 [ext_resource type="PackedScene" uid="uid://bsqek5uo0goqw" path="res://Scenes/enviroment.tscn" id="1_xllnw"]
 [ext_resource type="PackedScene" uid="uid://b051g337vgaep" path="res://Scenes/player.tscn" id="2_aoo5h"]
 [ext_resource type="PackedScene" uid="uid://2pynlsd0qbj6" path="res://Scenes/enemy.tscn" id="3_yl7ce"]
+[ext_resource type="PackedScene" uid="uid://db6lmc56ir812" path="res://Scenes/enemyTwo.tscn" id="4_er24h"]
+[ext_resource type="PackedScene" uid="uid://chbhknipomr4g" path="res://Scenes/coin.tscn" id="6_nqjuh"]
+[ext_resource type="PackedScene" uid="uid://c0licdeoghsro" path="res://Scenes/ui.tscn" id="7_elspb"]
 
 [node name="Main" type="Node"]
+metadata/_edit_horizontal_guides_ = []
+metadata/_edit_vertical_guides_ = []
+
+[node name="TextureRect" type="TextureRect" parent="."]
+offset_left = -501.0
+offset_top = -765.0
+offset_right = 14729.0
+offset_bottom = 430.0
+texture = ExtResource("1_1dblm")
+stretch_mode = 1
 
 [node name="Player" parent="." instance=ExtResource("2_aoo5h")]
-position = Vector2(3760, 16)
+position = Vector2(3300, 22)
 
 [node name="Enviroment" parent="." instance=ExtResource("1_xllnw")]
-position = Vector2(1032, -216)
+position = Vector2(1032, -208)
 
 [node name="Enemies" type="Node" parent="."]
 
 [node name="Enemy" parent="Enemies" groups=["Enemies"] instance=ExtResource("3_yl7ce")]
-position = Vector2(840, -168)
+position = Vector2(840, -152)
 _destiny = 200.0
 
 [node name="Enemy2" parent="Enemies" groups=["Enemies"] instance=ExtResource("3_yl7ce")]
-position = Vector2(1701, -452)
+position = Vector2(1701, -432)
 _destiny = 1350.0
 
 [node name="Enemy3" parent="Enemies" groups=["Enemies"] instance=ExtResource("3_yl7ce")]
-position = Vector2(2749, 37)
+position = Vector2(2749, 56)
 _destiny = 2015.0
 
 [node name="Enemy4" parent="Enemies" groups=["Enemies"] instance=ExtResource("3_yl7ce")]
-position = Vector2(4646, 34)
+position = Vector2(4648, 53)
 _destiny = 3896.0
+
+[node name="EnemyFly" parent="Enemies" groups=["Enemies"] instance=ExtResource("4_er24h")]
+position = Vector2(1032, -305)
+speed = 125.0
+_destiny = 384.0
+
+[node name="EnemyFly2" parent="Enemies" groups=["Enemies"] instance=ExtResource("4_er24h")]
+position = Vector2(8099, -261)
+speed = 150.0
+_destiny = 6600.0
+
+[node name="EnemyFly3" parent="Enemies" groups=["Enemies"] instance=ExtResource("4_er24h")]
+position = Vector2(7884, -361)
+speed = 150.0
+_destiny = 6700.0
+
+[node name="Coins" type="Node" parent="."]
+
+[node name="Coin" parent="Coins" groups=["Coins"] instance=ExtResource("6_nqjuh")]
+position = Vector2(3587, -233)
+
+[node name="Coin2" parent="Coins" groups=["Coins"] instance=ExtResource("6_nqjuh")]
+position = Vector2(3798, -304)
+
+[node name="Coin3" parent="Coins" groups=["Coins"] instance=ExtResource("6_nqjuh")]
+position = Vector2(4427, -373)
+
+[node name="Coin4" parent="Coins" groups=["Coins"] instance=ExtResource("6_nqjuh")]
+position = Vector2(4636, -373)
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="Control" parent="CanvasLayer" instance=ExtResource("7_elspb")]
+offset_top = 7.0
+offset_bottom = 7.0

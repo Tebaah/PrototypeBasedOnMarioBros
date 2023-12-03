@@ -83,6 +83,10 @@ public partial class PlayerController : CharacterBody2D
 			// Accion cuando un enemigo me toca
 			GD.Print("Me mato un enemigo");
 		}
+		if(body.IsInGroup("Coins"))
+		{
+			GD.Print("+1 moneda");
+		}
 	}
 
 	private void Dead()

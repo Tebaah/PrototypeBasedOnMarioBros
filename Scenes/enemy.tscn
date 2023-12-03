@@ -1,31 +1,54 @@
-[gd_scene load_steps=5 format=3 uid="uid://2pynlsd0qbj6"]
+[gd_scene load_steps=7 format=3 uid="uid://2pynlsd0qbj6"]
 
-[ext_resource type="Texture2D" uid="uid://dgta06gsftxpi" path="res://Art/platformerGraphicsDeluxe_Updated/Enemies/blockerMad.png" id="1_88ouc"]
 [ext_resource type="Script" path="res://Scripts/EnemyController.cs" id="1_n77d1"]
+[ext_resource type="Texture2D" uid="uid://bbjgfbt52qge7" path="res://Art/platformerGraphicsDeluxe_Updated/Enemies/slimeWalk1.png" id="2_87lne"]
+[ext_resource type="Texture2D" uid="uid://ce8vbi3t08ve1" path="res://Art/platformerGraphicsDeluxe_Updated/Enemies/slimeWalk2.png" id="3_q06sq"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_31n87"]
-size = Vector2(50, 51)
+[sub_resource type="SpriteFrames" id="SpriteFrames_ps0us"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_87lne")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_q06sq")
+}],
+"loop": true,
+"name": &"walk",
+"speed": 5.0
+}]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_tsoo8"]
-size = Vector2(43, 6)
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_k132r"]
+radius = 10.5
+height = 54.0
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_qp7uu"]
+radius = 2.5
+height = 26.0
 
 [node name="Enemy" type="CharacterBody2D"]
 collision_layer = 2
 collision_mask = 5
+platform_floor_layers = 4294901762
+platform_wall_layers = 5
 script = ExtResource("1_n77d1")
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
-texture = ExtResource("1_88ouc")
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_ps0us")
+animation = &"walk"
+frame_progress = 0.738034
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(0, -0.5)
-shape = SubResource("RectangleShape2D_31n87")
+position = Vector2(0, 4)
+rotation = 1.5708
+shape = SubResource("CapsuleShape2D_k132r")
 
 [node name="Area2D" type="Area2D" parent="."]
 collision_layer = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
-position = Vector2(0, -27)
-shape = SubResource("RectangleShape2D_tsoo8")
+position = Vector2(-3, -10)
+rotation = 1.5708
+shape = SubResource("CapsuleShape2D_qp7uu")
 
 [connection signal="body_entered" from="Area2D" to="." method="OnEnemyBodyEntered"]
