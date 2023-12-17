@@ -1,30 +1,37 @@
 using Godot;
 using System;
+using System.Threading;
 
 public partial class CoinController : CharacterBody2D
 {
-
+	// Variables
 	private AudioStreamPlayer2D _audioController;
 
-	// Called when the node enters the scene tree for the first time.
+	// Metodos
 	public override void _Ready()
 	{
 		_audioController = GetNode<AudioStreamPlayer2D>("AudioStreamPlayer");
 	}
 
-	// Called every frame. 'delta' is the elapsed time since the previous frame.
+	
 	public override void _Process(double delta)
 	{
 	}
 
 	private void OnCoinBodyEntered(CharacterBody2D body)
 	{	
-		if(body.Name == "Player")
+		if (body.Name == "Player")
 		{	
+			// Activamos audio y destruimos objeto
 			_audioController.Play();
-	
-			//QueueFree();
+			Die(0.1f);
 		}
 
+	}
+	// Funcion para destruir el objeto luego de un tiempo
+	private async void Die(float delay)
+	{
+		await ToSignal(GetTree().CreateTimer(delay), "timeout");
+		QueueFree();
 	}
 }

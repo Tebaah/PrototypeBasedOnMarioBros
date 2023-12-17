@@ -5,7 +5,7 @@
 [ext_resource type="AudioStream" uid="uid://bsokvk6wayjlw" path="res://Assets/Audio/Sound/coin.mp3" id="3_dvhwy"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_bktso"]
-radius = 11.0
+radius = 3.16228
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_265oi"]
 radius = 18.0
@@ -31,6 +31,6 @@ shape = SubResource("CircleShape2D_265oi")
 [node name="AudioStreamPlayer" type="AudioStreamPlayer2D" parent="."]
 position = Vector2(-3, -6)
 stream = ExtResource("3_dvhwy")
-volume_db = 12.18
+volume_db = 15.0
 
 [connection signal="body_entered" from="Area2D" to="." method="OnCoinBodyEntered"]

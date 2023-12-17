@@ -61,13 +61,13 @@ _destiny = 6700.0
 [node name="Coins" type="Node" parent="."]
 
 [node name="Coin" parent="Coins" groups=["Coins"] instance=ExtResource("6_nqjuh")]
-position = Vector2(3587, -233)
+position = Vector2(3584, -331)
 
 [node name="Coin2" parent="Coins" groups=["Coins"] instance=ExtResource("6_nqjuh")]
-position = Vector2(3798, -304)
+position = Vector2(3798, -408)
 
 [node name="Coin3" parent="Coins" groups=["Coins"] instance=ExtResource("6_nqjuh")]
-position = Vector2(4427, -373)
+position = Vector2(4427, -418)
 
 [node name="Coin4" parent="Coins" groups=["Coins"] instance=ExtResource("6_nqjuh")]
 position = Vector2(4636, -373)

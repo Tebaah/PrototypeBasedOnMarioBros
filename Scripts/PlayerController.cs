@@ -3,18 +3,20 @@ using System;
 
 public partial class PlayerController : CharacterBody2D
 {
+	// Variables
 	[Export]public float moveSpeed = 150.0f;
 	[Export]public float jumpVelocity = 350.0f;
 
 	// Obtener la gravedad del sistema 
 	public float gravity = ProjectSettings.GetSetting("physics/2d/default_gravity").AsSingle();
 	private AnimatedSprite2D _animatedController;
-	private AudioStreamPlayer2D _audioController;
+	private AudioStreamPlayer2D _audioJump;
 
+	// Metodos
 	public override void _Ready()
 	{
 		_animatedController = GetNode<AnimatedSprite2D>("AnimatedSprite2D");
-		_audioController = GetNode<AudioStreamPlayer2D>("AudioStreamPlayer2D");
+		_audioJump = GetNode<AudioStreamPlayer2D>("jump");
 	}
 
     public override void _Process(double delta)
@@ -37,7 +39,7 @@ public partial class PlayerController : CharacterBody2D
 		{
 			velocity.Y = -jumpVelocity;
 			_animatedController.Play("jump");
-			_audioController.Play();
+			_audioJump.Play();
 		}
 
 		// Movimiento personaje izquierda y derecha
@@ -88,10 +90,12 @@ public partial class PlayerController : CharacterBody2D
 		}
 		if(body.IsInGroup("Coins"))
 		{
+			// Accion cuando toco un moneda
 			GD.Print("+1 moneda");
 		}
 	}
 
+	// Funciona para destruir el personaje cuando cae
 	private void Dead()
 	{
 		if(Position.Y >= 136)

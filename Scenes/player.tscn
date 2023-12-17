@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=3 uid="uid://b051g337vgaep"]
+[gd_scene load_steps=20 format=3 uid="uid://b051g337vgaep"]
 
 [ext_resource type="Texture2D" uid="uid://dkkagyar5d5jf" path="res://Assets/Art/platformerGraphicsDeluxe_Updated/Player/p1_stand.png" id="1_fi6sa"]
 [ext_resource type="Script" path="res://Scripts/PlayerController.cs" id="1_vp65b"]
@@ -15,6 +15,7 @@
 [ext_resource type="Texture2D" uid="uid://cf3cimhnn6dyy" path="res://Assets/Art/platformerGraphicsDeluxe_Updated/Player/p1_walk/PNG/p1_walk10.png" id="13_8scie"]
 [ext_resource type="Texture2D" uid="uid://5n5r4yp2wfb0" path="res://Assets/Art/platformerGraphicsDeluxe_Updated/Player/p1_walk/PNG/p1_walk11.png" id="14_wsdht"]
 [ext_resource type="AudioStream" uid="uid://c5co5tfo8h1r8" path="res://Assets/Audio/Sound/jump.mp3" id="15_gjhic"]
+[ext_resource type="AudioStream" uid="uid://bsokvk6wayjlw" path="res://Assets/Audio/Sound/coin.mp3" id="16_0ho80"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_nu3ig"]
 animations = [{
@@ -109,8 +110,13 @@ position = Vector2(1, 1)
 shape = SubResource("CapsuleShape2D_xvrxe")
 metadata/_edit_lock_ = true
 
-[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+[node name="jump" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("15_gjhic")
+pitch_scale = 1.5
+
+[node name="coin" type="AudioStreamPlayer2D" parent="."]
+position = Vector2(1, 0)
+stream = ExtResource("16_0ho80")
 pitch_scale = 1.5
 
 [connection signal="body_entered" from="Area2D" to="." method="OnPlayerBodyEntered"]

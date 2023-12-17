@@ -4,6 +4,7 @@ using System;
 
 public partial class EnemyController : CharacterBody2D
 {
+	// Variables
 	[Export]public float speed = 100.0f; // Velocidad de movimiento
 	[Export]public float _destiny; // Ubicacion en pixel debe ser simepre menor a la position
 	
@@ -12,7 +13,8 @@ public partial class EnemyController : CharacterBody2D
 
 	private AnimatedSprite2D _animationController;
 	private AudioStreamPlayer2D _audioController;
-	// Called when the node enters the scene tree for the first time.
+
+	// Metodos
 	public override void _Ready()
 	{
 		_initialPosition = Position;
@@ -20,7 +22,7 @@ public partial class EnemyController : CharacterBody2D
 		_audioController = GetNode<AudioStreamPlayer2D>("AudioStreamPlayer");
 	}
 
-	// Called every frame. 'delta' is the elapsed time since the previous frame.
+	
 	public override void _PhysicsProcess(double delta)
 	{
 		// Asignamos la velocidad
@@ -58,9 +60,16 @@ public partial class EnemyController : CharacterBody2D
 	{
 		if(body.Name == "Player")
 		{
+			// Activamos audio y destruimos el objeto
 			_audioController.Play();
-			GD.Print("Me mato el jugador");
-			QueueFree();
+			Die(0.1f);
 		}
+	}
+
+	// Funcion para destruir el objeto luego de un tiempo
+	private async void Die(float delay)
+	{
+		await ToSignal(GetTree().CreateTimer(delay), "timeout");
+		QueueFree();
 	}
 }
