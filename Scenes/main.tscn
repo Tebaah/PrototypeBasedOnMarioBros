@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://4yn8swcoq0l0"]
+[gd_scene load_steps=8 format=3 uid="uid://4yn8swcoq0l0"]
 
 [ext_resource type="Texture2D" uid="uid://ckcr4rjwlvqc4" path="res://Assets/Art/platformerGraphicsDeluxe_Updated/bg_castle.png" id="1_1dblm"]
 [ext_resource type="PackedScene" uid="uid://bsqek5uo0goqw" path="res://Scenes/enviroment.tscn" id="1_xllnw"]
@@ -6,6 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://2pynlsd0qbj6" path="res://Scenes/enemy.tscn" id="3_yl7ce"]
 [ext_resource type="PackedScene" uid="uid://db6lmc56ir812" path="res://Scenes/enemyTwo.tscn" id="4_er24h"]
 [ext_resource type="PackedScene" uid="uid://chbhknipomr4g" path="res://Scenes/coin.tscn" id="6_nqjuh"]
+[ext_resource type="AudioStream" uid="uid://b415qggl60h6" path="res://Assets/Audio/Music/ambient.mp3" id="7_0c2sw"]
 
 [node name="Main" type="Node"]
 metadata/_edit_horizontal_guides_ = []
@@ -20,7 +21,7 @@ texture = ExtResource("1_1dblm")
 stretch_mode = 1
 
 [node name="Player" parent="." instance=ExtResource("2_aoo5h")]
-position = Vector2(3300, 22)
+position = Vector2(-407, -392)
 
 [node name="Enviroment" parent="." instance=ExtResource("1_xllnw")]
 position = Vector2(1032, -208)
@@ -138,3 +139,8 @@ text = "LIFE:"
 layout_mode = 2
 theme_override_font_sizes/font_size = 50
 text = "000"
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("7_0c2sw")
+volume_db = -25.0
+autoplay = true
