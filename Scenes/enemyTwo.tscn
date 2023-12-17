@@ -1,8 +1,9 @@
-[gd_scene load_steps=7 format=3 uid="uid://db6lmc56ir812"]
+[gd_scene load_steps=8 format=3 uid="uid://db6lmc56ir812"]
 
-[ext_resource type="Texture2D" uid="uid://md2gn2dn52k0" path="res://Art/platformerGraphicsDeluxe_Updated/Enemies/flyFly1.png" id="1_4bom6"]
+[ext_resource type="Texture2D" uid="uid://md2gn2dn52k0" path="res://Assets/Art/platformerGraphicsDeluxe_Updated/Enemies/flyFly1.png" id="1_4bom6"]
 [ext_resource type="Script" path="res://Scripts/EnemyController.cs" id="1_88wxi"]
-[ext_resource type="Texture2D" uid="uid://isoqwbdfes7t" path="res://Art/platformerGraphicsDeluxe_Updated/Enemies/flyFly2.png" id="2_bp8a6"]
+[ext_resource type="Texture2D" uid="uid://isoqwbdfes7t" path="res://Assets/Art/platformerGraphicsDeluxe_Updated/Enemies/flyFly2.png" id="2_bp8a6"]
+[ext_resource type="AudioStream" uid="uid://b6ywxjm2q2ays" path="res://Assets/Audio/Sound/deathsplash.mp3" id="4_i8ke6"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_y2ewx"]
 animations = [{
@@ -47,5 +48,8 @@ collision_layer = 2
 position = Vector2(-2, -10)
 rotation = 1.5708
 shape = SubResource("CapsuleShape2D_rmnd6")
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("4_i8ke6")
 
 [connection signal="body_entered" from="Area2D" to="." method="OnEnemyBodyEntered"]

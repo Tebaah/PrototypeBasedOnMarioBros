@@ -1,19 +1,20 @@
-[gd_scene load_steps=18 format=3 uid="uid://b051g337vgaep"]
+[gd_scene load_steps=19 format=3 uid="uid://b051g337vgaep"]
 
-[ext_resource type="Texture2D" uid="uid://dkkagyar5d5jf" path="res://Art/platformerGraphicsDeluxe_Updated/Player/p1_stand.png" id="1_fi6sa"]
+[ext_resource type="Texture2D" uid="uid://dkkagyar5d5jf" path="res://Assets/Art/platformerGraphicsDeluxe_Updated/Player/p1_stand.png" id="1_fi6sa"]
 [ext_resource type="Script" path="res://Scripts/PlayerController.cs" id="1_vp65b"]
-[ext_resource type="Texture2D" uid="uid://caafvu37u4m7b" path="res://Art/platformerGraphicsDeluxe_Updated/Player/p1_jump.png" id="3_bkqq4"]
-[ext_resource type="Texture2D" uid="uid://rtg7aj51gwmy" path="res://Art/platformerGraphicsDeluxe_Updated/Player/p1_walk/PNG/p1_walk01.png" id="4_acdm2"]
-[ext_resource type="Texture2D" uid="uid://dl2e5wosouqsr" path="res://Art/platformerGraphicsDeluxe_Updated/Player/p1_walk/PNG/p1_walk02.png" id="5_wrv5l"]
-[ext_resource type="Texture2D" uid="uid://b7cxhraq0ojvi" path="res://Art/platformerGraphicsDeluxe_Updated/Player/p1_walk/PNG/p1_walk03.png" id="6_448aw"]
-[ext_resource type="Texture2D" uid="uid://6y45fd6g3liv" path="res://Art/platformerGraphicsDeluxe_Updated/Player/p1_walk/PNG/p1_walk04.png" id="7_p0nj8"]
-[ext_resource type="Texture2D" uid="uid://bi8ajwhslvunv" path="res://Art/platformerGraphicsDeluxe_Updated/Player/p1_walk/PNG/p1_walk05.png" id="8_nw2io"]
-[ext_resource type="Texture2D" uid="uid://cp87eqwf1h13f" path="res://Art/platformerGraphicsDeluxe_Updated/Player/p1_walk/PNG/p1_walk06.png" id="9_rj5j4"]
-[ext_resource type="Texture2D" uid="uid://xrw1ul8juxei" path="res://Art/platformerGraphicsDeluxe_Updated/Player/p1_walk/PNG/p1_walk07.png" id="10_dsyfr"]
-[ext_resource type="Texture2D" uid="uid://dtn0o0ujqydll" path="res://Art/platformerGraphicsDeluxe_Updated/Player/p1_walk/PNG/p1_walk08.png" id="11_cov1i"]
-[ext_resource type="Texture2D" uid="uid://ckv15wbnpvrca" path="res://Art/platformerGraphicsDeluxe_Updated/Player/p1_walk/PNG/p1_walk09.png" id="12_2m8u1"]
-[ext_resource type="Texture2D" uid="uid://cf3cimhnn6dyy" path="res://Art/platformerGraphicsDeluxe_Updated/Player/p1_walk/PNG/p1_walk10.png" id="13_8scie"]
-[ext_resource type="Texture2D" uid="uid://5n5r4yp2wfb0" path="res://Art/platformerGraphicsDeluxe_Updated/Player/p1_walk/PNG/p1_walk11.png" id="14_wsdht"]
+[ext_resource type="Texture2D" uid="uid://caafvu37u4m7b" path="res://Assets/Art/platformerGraphicsDeluxe_Updated/Player/p1_jump.png" id="3_bkqq4"]
+[ext_resource type="Texture2D" uid="uid://rtg7aj51gwmy" path="res://Assets/Art/platformerGraphicsDeluxe_Updated/Player/p1_walk/PNG/p1_walk01.png" id="4_acdm2"]
+[ext_resource type="Texture2D" uid="uid://dl2e5wosouqsr" path="res://Assets/Art/platformerGraphicsDeluxe_Updated/Player/p1_walk/PNG/p1_walk02.png" id="5_wrv5l"]
+[ext_resource type="Texture2D" uid="uid://b7cxhraq0ojvi" path="res://Assets/Art/platformerGraphicsDeluxe_Updated/Player/p1_walk/PNG/p1_walk03.png" id="6_448aw"]
+[ext_resource type="Texture2D" uid="uid://6y45fd6g3liv" path="res://Assets/Art/platformerGraphicsDeluxe_Updated/Player/p1_walk/PNG/p1_walk04.png" id="7_p0nj8"]
+[ext_resource type="Texture2D" uid="uid://bi8ajwhslvunv" path="res://Assets/Art/platformerGraphicsDeluxe_Updated/Player/p1_walk/PNG/p1_walk05.png" id="8_nw2io"]
+[ext_resource type="Texture2D" uid="uid://cp87eqwf1h13f" path="res://Assets/Art/platformerGraphicsDeluxe_Updated/Player/p1_walk/PNG/p1_walk06.png" id="9_rj5j4"]
+[ext_resource type="Texture2D" uid="uid://xrw1ul8juxei" path="res://Assets/Art/platformerGraphicsDeluxe_Updated/Player/p1_walk/PNG/p1_walk07.png" id="10_dsyfr"]
+[ext_resource type="Texture2D" uid="uid://dtn0o0ujqydll" path="res://Assets/Art/platformerGraphicsDeluxe_Updated/Player/p1_walk/PNG/p1_walk08.png" id="11_cov1i"]
+[ext_resource type="Texture2D" uid="uid://ckv15wbnpvrca" path="res://Assets/Art/platformerGraphicsDeluxe_Updated/Player/p1_walk/PNG/p1_walk09.png" id="12_2m8u1"]
+[ext_resource type="Texture2D" uid="uid://cf3cimhnn6dyy" path="res://Assets/Art/platformerGraphicsDeluxe_Updated/Player/p1_walk/PNG/p1_walk10.png" id="13_8scie"]
+[ext_resource type="Texture2D" uid="uid://5n5r4yp2wfb0" path="res://Assets/Art/platformerGraphicsDeluxe_Updated/Player/p1_walk/PNG/p1_walk11.png" id="14_wsdht"]
+[ext_resource type="AudioStream" uid="uid://c5co5tfo8h1r8" path="res://Assets/Audio/Sound/jump.mp3" id="15_gjhic"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_nu3ig"]
 animations = [{
@@ -107,5 +108,9 @@ collision_mask = 10
 position = Vector2(1, 1)
 shape = SubResource("CapsuleShape2D_xvrxe")
 metadata/_edit_lock_ = true
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("15_gjhic")
+pitch_scale = 1.5
 
 [connection signal="body_entered" from="Area2D" to="." method="OnPlayerBodyEntered"]

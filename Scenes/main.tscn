@@ -1,12 +1,11 @@
-[gd_scene load_steps=8 format=3 uid="uid://4yn8swcoq0l0"]
+[gd_scene load_steps=7 format=3 uid="uid://4yn8swcoq0l0"]
 
-[ext_resource type="Texture2D" uid="uid://ckcr4rjwlvqc4" path="res://Art/platformerGraphicsDeluxe_Updated/bg_castle.png" id="1_1dblm"]
+[ext_resource type="Texture2D" uid="uid://ckcr4rjwlvqc4" path="res://Assets/Art/platformerGraphicsDeluxe_Updated/bg_castle.png" id="1_1dblm"]
 [ext_resource type="PackedScene" uid="uid://bsqek5uo0goqw" path="res://Scenes/enviroment.tscn" id="1_xllnw"]
 [ext_resource type="PackedScene" uid="uid://b051g337vgaep" path="res://Scenes/player.tscn" id="2_aoo5h"]
 [ext_resource type="PackedScene" uid="uid://2pynlsd0qbj6" path="res://Scenes/enemy.tscn" id="3_yl7ce"]
 [ext_resource type="PackedScene" uid="uid://db6lmc56ir812" path="res://Scenes/enemyTwo.tscn" id="4_er24h"]
 [ext_resource type="PackedScene" uid="uid://chbhknipomr4g" path="res://Scenes/coin.tscn" id="6_nqjuh"]
-[ext_resource type="PackedScene" uid="uid://c0licdeoghsro" path="res://Scenes/ui.tscn" id="7_elspb"]
 
 [node name="Main" type="Node"]
 metadata/_edit_horizontal_guides_ = []
@@ -75,6 +74,67 @@ position = Vector2(4636, -373)
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
-[node name="Control" parent="CanvasLayer" instance=ExtResource("7_elspb")]
-offset_top = 7.0
-offset_bottom = 7.0
+[node name="Control" type="Control" parent="CanvasLayer"]
+layout_mode = 3
+anchors_preset = 10
+anchor_right = 1.0
+grow_horizontal = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer/Control"]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_bottom = 69.0
+grow_horizontal = 2
+
+[node name="Control" type="Control" parent="CanvasLayer/Control/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer/Control/HBoxContainer/Control"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -119.5
+offset_right = 119.5
+offset_bottom = 69.0
+grow_horizontal = 2
+
+[node name="Label" type="Label" parent="CanvasLayer/Control/HBoxContainer/Control/HBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 50
+text = "Score:"
+
+[node name="Label2" type="Label" parent="CanvasLayer/Control/HBoxContainer/Control/HBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 50
+text = "000"
+
+[node name="Control2" type="Control" parent="CanvasLayer/Control/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Control3" type="Control" parent="CanvasLayer/Control/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer/Control/HBoxContainer/Control3"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -101.0
+offset_right = 101.0
+offset_bottom = 69.0
+grow_horizontal = 2
+
+[node name="Label" type="Label" parent="CanvasLayer/Control/HBoxContainer/Control3/HBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 50
+text = "LIFE:"
+
+[node name="Label2" type="Label" parent="CanvasLayer/Control/HBoxContainer/Control3/HBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 50
+text = "000"

@@ -3,9 +3,13 @@ using System;
 
 public partial class CoinController : CharacterBody2D
 {
+
+	private AudioStreamPlayer2D _audioController;
+
 	// Called when the node enters the scene tree for the first time.
 	public override void _Ready()
 	{
+		_audioController = GetNode<AudioStreamPlayer2D>("AudioStreamPlayer");
 	}
 
 	// Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -14,10 +18,13 @@ public partial class CoinController : CharacterBody2D
 	}
 
 	private void OnCoinBodyEntered(CharacterBody2D body)
-	{
+	{	
 		if(body.Name == "Player")
-		{
-			QueueFree();
+		{	
+			_audioController.Play();
+	
+			//QueueFree();
 		}
+
 	}
 }

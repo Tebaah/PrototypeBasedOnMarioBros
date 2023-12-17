@@ -1,7 +1,8 @@
-[gd_scene load_steps=5 format=3 uid="uid://chbhknipomr4g"]
+[gd_scene load_steps=6 format=3 uid="uid://chbhknipomr4g"]
 
-[ext_resource type="Texture2D" uid="uid://bf2ndk1ouxh58" path="res://Art/platformerGraphicsDeluxe_Updated/Items/coinGold.png" id="1_1gkho"]
+[ext_resource type="Texture2D" uid="uid://bf2ndk1ouxh58" path="res://Assets/Art/platformerGraphicsDeluxe_Updated/Items/coinGold.png" id="1_1gkho"]
 [ext_resource type="Script" path="res://Scripts/CoinController.cs" id="1_mteh8"]
+[ext_resource type="AudioStream" uid="uid://bsokvk6wayjlw" path="res://Assets/Audio/Sound/coin.mp3" id="3_dvhwy"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_bktso"]
 radius = 11.0
@@ -26,5 +27,10 @@ collision_layer = 8
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
 position = Vector2(0, 1)
 shape = SubResource("CircleShape2D_265oi")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer2D" parent="."]
+position = Vector2(-3, -6)
+stream = ExtResource("3_dvhwy")
+volume_db = 12.18
 
 [connection signal="body_entered" from="Area2D" to="." method="OnCoinBodyEntered"]

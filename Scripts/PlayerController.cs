@@ -9,10 +9,12 @@ public partial class PlayerController : CharacterBody2D
 	// Obtener la gravedad del sistema 
 	public float gravity = ProjectSettings.GetSetting("physics/2d/default_gravity").AsSingle();
 	private AnimatedSprite2D _animatedController;
+	private AudioStreamPlayer2D _audioController;
 
 	public override void _Ready()
 	{
 		_animatedController = GetNode<AnimatedSprite2D>("AnimatedSprite2D");
+		_audioController = GetNode<AudioStreamPlayer2D>("AudioStreamPlayer2D");
 	}
 
     public override void _Process(double delta)
@@ -35,6 +37,7 @@ public partial class PlayerController : CharacterBody2D
 		{
 			velocity.Y = -jumpVelocity;
 			_animatedController.Play("jump");
+			_audioController.Play();
 		}
 
 		// Movimiento personaje izquierda y derecha
