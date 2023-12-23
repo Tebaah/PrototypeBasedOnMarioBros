@@ -20,8 +20,10 @@ offset_bottom = 430.0
 texture = ExtResource("1_1dblm")
 stretch_mode = 1
 
-[node name="Player" parent="." instance=ExtResource("2_aoo5h")]
-position = Vector2(-407, -392)
+[node name="Player" parent="." node_paths=PackedStringArray("life", "score") instance=ExtResource("2_aoo5h")]
+position = Vector2(3727, -119)
+life = NodePath("../CanvasLayer/Control/HBoxContainer/Control3/HBoxContainer/LifeText")
+score = NodePath("../CanvasLayer/Control/HBoxContainer/Control/HBoxContainer/ScoreText")
 
 [node name="Enviroment" parent="." instance=ExtResource("1_xllnw")]
 position = Vector2(1032, -208)
@@ -62,16 +64,16 @@ _destiny = 6700.0
 [node name="Coins" type="Node" parent="."]
 
 [node name="Coin" parent="Coins" groups=["Coins"] instance=ExtResource("6_nqjuh")]
-position = Vector2(3584, -331)
+position = Vector2(3585, -391)
 
 [node name="Coin2" parent="Coins" groups=["Coins"] instance=ExtResource("6_nqjuh")]
-position = Vector2(3798, -408)
+position = Vector2(4004, -451)
 
 [node name="Coin3" parent="Coins" groups=["Coins"] instance=ExtResource("6_nqjuh")]
-position = Vector2(4427, -418)
+position = Vector2(4215, -520)
 
 [node name="Coin4" parent="Coins" groups=["Coins"] instance=ExtResource("6_nqjuh")]
-position = Vector2(4636, -373)
+position = Vector2(4426, -520)
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
@@ -102,15 +104,10 @@ offset_right = 119.5
 offset_bottom = 69.0
 grow_horizontal = 2
 
-[node name="Label" type="Label" parent="CanvasLayer/Control/HBoxContainer/Control/HBoxContainer"]
+[node name="ScoreText" type="Label" parent="CanvasLayer/Control/HBoxContainer/Control/HBoxContainer"]
 layout_mode = 2
 theme_override_font_sizes/font_size = 50
 text = "Score:"
-
-[node name="Label2" type="Label" parent="CanvasLayer/Control/HBoxContainer/Control/HBoxContainer"]
-layout_mode = 2
-theme_override_font_sizes/font_size = 50
-text = "000"
 
 [node name="Control2" type="Control" parent="CanvasLayer/Control/HBoxContainer"]
 layout_mode = 2
@@ -130,15 +127,10 @@ offset_right = 101.0
 offset_bottom = 69.0
 grow_horizontal = 2
 
-[node name="Label" type="Label" parent="CanvasLayer/Control/HBoxContainer/Control3/HBoxContainer"]
+[node name="LifeText" type="Label" parent="CanvasLayer/Control/HBoxContainer/Control3/HBoxContainer"]
 layout_mode = 2
 theme_override_font_sizes/font_size = 50
 text = "LIFE:"
-
-[node name="Label2" type="Label" parent="CanvasLayer/Control/HBoxContainer/Control3/HBoxContainer"]
-layout_mode = 2
-theme_override_font_sizes/font_size = 50
-text = "000"
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("7_0c2sw")

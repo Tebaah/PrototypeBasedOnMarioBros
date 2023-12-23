@@ -11,12 +11,18 @@ public partial class PlayerController : CharacterBody2D
 	public float gravity = ProjectSettings.GetSetting("physics/2d/default_gravity").AsSingle();
 	private AnimatedSprite2D _animatedController;
 	private AudioStreamPlayer2D _audioJump;
+	[Export] public Label life;
+	private int _life = 2;
+	[Export] public Label score;
+	private int _score;
 
 	// Metodos
 	public override void _Ready()
 	{
 		_animatedController = GetNode<AnimatedSprite2D>("AnimatedSprite2D");
 		_audioJump = GetNode<AudioStreamPlayer2D>("jump");
+		score.Text = $"Score: {_score}";
+		life.Text = $"Life: {_life}";
 	}
 
     public override void _Process(double delta)
@@ -83,17 +89,27 @@ public partial class PlayerController : CharacterBody2D
 
 	private void OnPlayerBodyEntered(CharacterBody2D body)
 	{
+
+		// Cuando toco un enemigo
 		if(body.IsInGroup("Enemies"))
 		{
-			// Accion cuando un enemigo me toca
-			GD.Print("Me mato un enemigo");
+			_life -= 1;
+			life.Text = $"Life: {_life}";
+
+			if(_life == 0)
+			{
+				GD.Print("Me mato un enemigo");
+			}			
 		}
+
+		// Cuando toco una moneda
 		if(body.IsInGroup("Coins"))
 		{
-			// Accion cuando toco un moneda
-			GD.Print("+1 moneda");
+			_score += 1;
+			score.Text = $"Score: {_score}";
 		}
 	}
+
 
 	// Funciona para destruir el personaje cuando cae
 	private void Dead()

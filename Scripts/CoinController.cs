@@ -11,6 +11,7 @@ public partial class CoinController : CharacterBody2D
 	public override void _Ready()
 	{
 		_audioController = GetNode<AudioStreamPlayer2D>("AudioStreamPlayer");
+
 	}
 
 	
@@ -19,15 +20,17 @@ public partial class CoinController : CharacterBody2D
 	}
 
 	private void OnCoinBodyEntered(CharacterBody2D body)
-	{	
+	{			
 		if (body.Name == "Player")
 		{	
-			// Activamos audio y destruimos objeto
+			// Activamos audio y destruimos objeto - collision characterbody debe estar disable
 			_audioController.Play();
-			Die(0.1f);
+			Visible = false;
+			Die(0.25f);
 		}
 
 	}
+	
 	// Funcion para destruir el objeto luego de un tiempo
 	private async void Die(float delay)
 	{
