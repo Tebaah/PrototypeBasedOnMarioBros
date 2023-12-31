@@ -9,24 +9,25 @@
 [ext_resource type="AudioStream" uid="uid://b415qggl60h6" path="res://Assets/Audio/Music/ambient.mp3" id="7_0c2sw"]
 
 [node name="Main" type="Node"]
-metadata/_edit_horizontal_guides_ = []
-metadata/_edit_vertical_guides_ = []
 
 [node name="TextureRect" type="TextureRect" parent="."]
+z_index = -1
 offset_left = -501.0
 offset_top = -765.0
 offset_right = 14729.0
 offset_bottom = 430.0
+pivot_offset = Vector2(15287, -3498)
 texture = ExtResource("1_1dblm")
 stretch_mode = 1
 
 [node name="Player" parent="." node_paths=PackedStringArray("life", "score") instance=ExtResource("2_aoo5h")]
-position = Vector2(3727, -119)
+position = Vector2(-325, -392)
 life = NodePath("../CanvasLayer/Control/HBoxContainer/Control3/HBoxContainer/LifeText")
 score = NodePath("../CanvasLayer/Control/HBoxContainer/Control/HBoxContainer/ScoreText")
 
 [node name="Enviroment" parent="." instance=ExtResource("1_xllnw")]
 position = Vector2(1032, -208)
+metadata/_edit_lock_ = true
 
 [node name="Enemies" type="Node" parent="."]
 
@@ -46,6 +47,19 @@ _destiny = 2015.0
 position = Vector2(4648, 53)
 _destiny = 3896.0
 
+[node name="Enemy5" parent="Enemies" groups=["Enemies"] instance=ExtResource("3_yl7ce")]
+position = Vector2(9369, 46)
+_destiny = 9156.0
+
+[node name="Enemy6" parent="Enemies" groups=["Enemies"] instance=ExtResource("3_yl7ce")]
+position = Vector2(11214, -166)
+_destiny = 11017.0
+
+[node name="Enemy7" parent="Enemies" groups=["Enemies"] instance=ExtResource("3_yl7ce")]
+position = Vector2(12662, -126)
+speed = 150.0
+_destiny = 11875.0
+
 [node name="EnemyFly" parent="Enemies" groups=["Enemies"] instance=ExtResource("4_er24h")]
 position = Vector2(1032, -305)
 speed = 125.0
@@ -61,6 +75,21 @@ position = Vector2(7884, -361)
 speed = 150.0
 _destiny = 6700.0
 
+[node name="EnemyFly4" parent="Enemies" groups=["Enemies"] instance=ExtResource("4_er24h")]
+position = Vector2(10561, 19)
+speed = 175.0
+_destiny = 9990.0
+
+[node name="EnemyFly5" parent="Enemies" groups=["Enemies"] instance=ExtResource("4_er24h")]
+position = Vector2(10775, -51)
+speed = 150.0
+_destiny = 10205.0
+
+[node name="EnemyFly6" parent="Enemies" groups=["Enemies"] instance=ExtResource("4_er24h")]
+position = Vector2(12918, -217)
+speed = 200.0
+_destiny = 11875.0
+
 [node name="Coins" type="Node" parent="."]
 
 [node name="Coin" parent="Coins" groups=["Coins"] instance=ExtResource("6_nqjuh")]
@@ -74,6 +103,27 @@ position = Vector2(4215, -520)
 
 [node name="Coin4" parent="Coins" groups=["Coins"] instance=ExtResource("6_nqjuh")]
 position = Vector2(4426, -520)
+
+[node name="Coin5" parent="Coins" groups=["Coins"] instance=ExtResource("6_nqjuh")]
+position = Vector2(162, -262)
+
+[node name="Coin6" parent="Coins" groups=["Coins"] instance=ExtResource("6_nqjuh")]
+position = Vector2(700, -262)
+
+[node name="Coin7" parent="Coins" groups=["Coins"] instance=ExtResource("6_nqjuh")]
+position = Vector2(1517, -570)
+
+[node name="Coin8" parent="Coins" groups=["Coins"] instance=ExtResource("6_nqjuh")]
+position = Vector2(6833, -145)
+
+[node name="Coin9" parent="Coins" groups=["Coins"] instance=ExtResource("6_nqjuh")]
+position = Vector2(7487, -102)
+
+[node name="Coin10" parent="Coins" groups=["Coins"] instance=ExtResource("6_nqjuh")]
+position = Vector2(9189, -292)
+
+[node name="Coin11" parent="Coins" groups=["Coins"] instance=ExtResource("6_nqjuh")]
+position = Vector2(9996, -78)
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
@@ -130,7 +180,7 @@ grow_horizontal = 2
 [node name="LifeText" type="Label" parent="CanvasLayer/Control/HBoxContainer/Control3/HBoxContainer"]
 layout_mode = 2
 theme_override_font_sizes/font_size = 50
-text = "LIFE:"
+text = "Life:"
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("7_0c2sw")

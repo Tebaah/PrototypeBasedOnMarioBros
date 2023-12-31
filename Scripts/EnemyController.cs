@@ -19,7 +19,7 @@ public partial class EnemyController : CharacterBody2D
 	{
 		_initialPosition = Position;
 		_animationController = GetNode<AnimatedSprite2D>("AnimatedSprite2D");
-		_audioController = GetNode<AudioStreamPlayer2D>("AudioStreamPlayer");
+		_audioController = GetNode<AudioStreamPlayer2D>("AudioStreamPlayer2D");
 	}
 
 	

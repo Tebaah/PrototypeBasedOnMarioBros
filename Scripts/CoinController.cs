@@ -7,11 +7,11 @@ public partial class CoinController : CharacterBody2D
 	// Variables
 	private AudioStreamPlayer2D _audioController;
 
+
 	// Metodos
 	public override void _Ready()
 	{
 		_audioController = GetNode<AudioStreamPlayer2D>("AudioStreamPlayer");
-
 	}
 
 	

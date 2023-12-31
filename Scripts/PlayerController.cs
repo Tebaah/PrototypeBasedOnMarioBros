@@ -41,7 +41,7 @@ public partial class PlayerController : CharacterBody2D
 		}
 
 		// Salto personaje
-		if(Input.IsActionPressed("jump") && IsOnFloor())
+		if(Input.IsActionJustPressed("jump") && IsOnFloor())
 		{
 			velocity.Y = -jumpVelocity;
 			_animatedController.Play("jump");
