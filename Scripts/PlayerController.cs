@@ -12,7 +12,7 @@ public partial class PlayerController : CharacterBody2D
 	private AnimatedSprite2D _animatedController;
 	private AudioStreamPlayer2D _audioJump;
 	[Export] public Label life;
-	private int _life = 2;
+	private int _life = 1;
 	[Export] public Label score;
 	private int _score;
 
